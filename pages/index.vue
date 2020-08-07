@@ -1,50 +1,80 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">
-        天小天
-      </h1>
+      <Logo></Logo>
+      <ul class="social">
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-CN_bilibiliB"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-weixin"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-QQ"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-GitHub"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-gitee"></use>
+          </svg>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  head () {
-    return {
-      title:'首页 | 天小天',
-    }
-  },
-}
+  import Logo from '../components/Logo'
+  export default {
+    components:{
+      "Logo":Logo
+    },
+    head () {
+      return {
+        title:'首页 | 天小天',
+      }
+    },
+  }
 </script>
 
 <style scoped>
-
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 500;
-  font-size: 80px;
-  color: #33333D;
-  letter-spacing: 1px;
-}
+  .container {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .social{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  .social li .icon{
+    font-size: 40px;
+    margin: 0 10px;
+  }
+  .bilibili{
+    color: #23ACE5;
+  }
+  .weixin{
+    color: #11D31D;
+  }
+  .qq{
+  }
+  .github{
+  }
+  .gitee{
+  }
 </style>

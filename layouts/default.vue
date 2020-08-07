@@ -52,6 +52,7 @@ export default {
 }
 </script>
 <style>
+@import "assets/css/font.css";
 *{
   margin: 0;
   padding: 0;
