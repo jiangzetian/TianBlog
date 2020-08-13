@@ -32,10 +32,11 @@ export default {
   },
   methods:{
     hidden(){
+      navigator.vibrate(100);
       this.menuShow = false;
     },
     open(){
-      navigator.vibrate(1000);
+      navigator.vibrate(100);
       this.menuShow = true;
     },
   },
