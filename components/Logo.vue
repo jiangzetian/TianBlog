@@ -19,11 +19,11 @@
 </script>
 <style>
   #logo{
-    width: 400px;
+    max-width: 400px;
     height: 400px;
   }
   .logo{
-    width: 400px;
+    width: 100%;
     height: auto;
   }
   .logo1{

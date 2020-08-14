@@ -6,8 +6,8 @@
           <div class="close-btn" @click="hidden">
             <i class="el-icon-close"></i>
           </div>
-          <nuxt-link to="/">首页</nuxt-link>
-          <nuxt-link to="/article">文章</nuxt-link>
+          <nuxt-link :class="{active:routeData.name==='index'}" to="/">首页</nuxt-link>
+          <nuxt-link :class="{active:routeData.name==='article'}" class="" to="/article">文章</nuxt-link>
         </nav>
       </div>
       <div id="paper-front">
@@ -17,7 +17,7 @@
           </span>
         </div>
         <div id="container">
-            <nuxt/>
+          <nuxt/>
         </div>
       </div>
     </div>
@@ -28,6 +28,7 @@ export default {
   data(){
     return {
       menuShow:false,
+      routeData:'',
     }
   },
   methods:{
@@ -39,6 +40,9 @@ export default {
       navigator.vibrate(100);
       this.menuShow = true;
     },
+    router(){
+      this.routeData = this.$route;
+    }
   },
   head () {
     return {
@@ -49,7 +53,13 @@ export default {
     }
   },
   mounted() {
+    this.router()
   },
+  watch:{
+    $route(to,form){
+      this.router()
+    }
+  }
 }
 </script>
 <style>
@@ -63,6 +73,11 @@ export default {
   user-select:none;
   -webkit-tap-highlight-color: transparent;
 }
+a{
+  color: #409EFF;
+  text-decoration: none                            ;
+}
+
 /*整体窗口*/
 #paper-window {
   height: 100vh;
@@ -71,6 +86,7 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 /*导航层*/
 #paper-back {
   z-index:2;
@@ -81,7 +97,6 @@ export default {
   top: 0;
   left: 0;
 }
-
 #paper-back nav {
   padding: 30px 0 0 0;
   max-width: 100px;
@@ -104,7 +119,9 @@ export default {
 #paper-back nav a:hover{
   color: rgba(255, 255, 255,1);
 }
-
+#paper-back nav .active{
+  color: rgba(255, 255, 255,1);
+}
 /*内容层*/
 #paper-front {
   z-index: 3;
@@ -126,14 +143,21 @@ export default {
   box-sizing: border-box;
   padding: 0 10px;
   position: absolute;
+  left: 10px;
+  top: 10px;
   z-index: 999;
-  width: 100%;
+  width: 50px;
   height: 50px;
   line-height: 50px;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 100%;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 #paper-front .open-btn{
-  font-size: 45px;
+  font-size: 30px;
   cursor: pointer;
 }
 
