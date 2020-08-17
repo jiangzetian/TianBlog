@@ -4,7 +4,12 @@
     <el-row>
       <ul class="social">
         <li>
-          <el-tooltip class="item" effect="light" content="bilibili 主页点击跳转" placement="bottom" >
+          <el-tooltip
+            class="item"
+            effect="light"
+            content="bilibili 主页点击跳转"
+            placement="bottom"
+          >
             <a href="https://space.bilibili.com/279625650/" target="_blank">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-CN_bilibiliB"></use>
@@ -66,6 +71,8 @@
         title:'首页 | 天小天',
       }
     },
+    methods:{
+    }
   }
 </script>
 
