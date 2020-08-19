@@ -71,8 +71,13 @@
         title:'首页 | 天小天',
       }
     },
+    data(){
+      return{
+
+      }
+    },
     methods:{
-    }
+    },
   }
 </script>
 
