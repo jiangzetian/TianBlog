@@ -1,20 +1,25 @@
-# jzt_blog
+## TianBlog个人博客网站前台-前端
 
-## Build Setup
+### 开发环境
+``node V12.*``
+``npm  V6.*``
+``Vue-Cli V4.*``
+
+### 项目运行
 
 ```bash
-# install dependencies
+# 安装依赖
 $ npm install
 
-# serve with hot reload at localhost:3000
+# 在本地主机上热重新加载服务:3000
 $ npm run dev
 
-# build for production and launch server
+# 为生产和启动服务器构建
 $ npm run build
 $ npm run start
 
-# generate static project
+# 生成静态项目
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+###
