@@ -13,7 +13,7 @@
     <el-row type="flex" justify="center" :gutter="20">
       <el-col :md="20" :xs="24">
           <el-col :md="8" :sm="12" :xs="24" v-for="(o, index) in 6" :key="o">
-            <el-card class="article-item" :body-style="{ padding: '0px' }">
+            <el-card class="article-item" :body-style="{ padding: '0px' }" shadow="hover">
               <nuxt-link class="link" to="/">
                 <el-image
                   style="width:100%; height:200px"
