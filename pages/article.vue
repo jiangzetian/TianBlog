@@ -54,11 +54,13 @@
 </template>
 
 <script>
+import articleAPI from '@/api/article';
 export default {
   data(){
     return{
       value:'',
-      value1:''
+      value1:'',
+      list:[]
     }
   },
   head () {
@@ -66,10 +68,19 @@ export default {
       title:'文章 | 天小天',
     }
   },
-  methods:{
-    articleShow(e){
-      console.log(e)
+  async asyncData(){
+    let listData = await articleAPI.list({});
+    return {
+      list:listData.data,
     }
+  },
+  methods:{
+  },
+  mounted() {
+    console.log(this.list)
+  },
+  created() {
+    // console.log(this.list)
   }
 }
 </script>
