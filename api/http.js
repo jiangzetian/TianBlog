@@ -3,11 +3,13 @@ import axios from 'axios';
 import { Message,Loading } from 'element-ui'
 
 const base = {
-  imgApiUrl:process.env.VUE_APP_API_BASE_URL,
-  baseurl:process.env.VUE_APP_API_BASE_URL
+  // imgApiUrl:process.env.VUE_APP_API_BASE_URL,
+  // baseurl:process.env.VUE_APP_API_BASE_URL
+  imgApiUrl:'https://image.tianxiaotian.xyz',
+  baseurl:'https://sikq.top'
 };
 //设置超时时间
-const  instance = axios.create({
+const instance = axios.create({
   timeout:1000*10
 });
 
@@ -33,10 +35,10 @@ instance.interceptors.request.use(config =>{
 
 //获取结果拦截 response
 instance.interceptors.response.use(response=>{
-    if(response.data.success){
+    if(response.data.code === 200){
       //在此关闭Loading动画//
       //正确返回
-      return Promise.resolve(response.data);
+      return Promise.resolve(response.data.data);
     }else {
       //发生错误错误信息统一拦截显示
       Message({
@@ -45,7 +47,7 @@ instance.interceptors.response.use(response=>{
       });
       //在此关闭Loading动画//
       //错误返回
-      return Promise.reject(response.data);
+      return Promise.reject(response.data.data);
     }
   }, error=>{
     //请求错误错误信息统一拦截显示
@@ -59,4 +61,4 @@ instance.interceptors.response.use(response=>{
   }
 );
 
-export default axios;
+export {instance,base};

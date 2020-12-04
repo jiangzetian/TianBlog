@@ -24,11 +24,20 @@
   </div>
 </template>
 <script>
+import appAPI from '@/api/modul/app';
 export default {
   data(){
     return {
       menuShow:false,
       routeData:'',
+    }
+  },
+  head () {
+    return {
+      title:'天小天',
+      meta: [
+        { hid: 'description', name: '天小天', content: '天小天个人网,前端工程师天小天的个人网站,致力于前端技术交流学习。' }
+      ]
     }
   },
   methods:{
@@ -42,24 +51,21 @@ export default {
     },
     router(){
       this.routeData = this.$route;
+    },
+    addAllVisits(){
+      let res  = appAPI.addVisits({});
     }
-  },
-  head () {
-    return {
-      title:'天小天',
-      meta: [
-        { hid: 'description', name: '天小天', content: '天小天个人网,前端工程师天小天的个人网站,致力于前端技术交流学习。' }
-      ]
-    }
-  },
-  mounted() {
-    this.router()
   },
   watch:{
     $route(to,form){
       this.router()
     }
-  }
+  },
+  created() {},
+  mounted() {
+    this.addAllVisits();
+    this.router();
+  },
 }
 </script>
 <style>

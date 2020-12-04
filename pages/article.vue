@@ -2,65 +2,70 @@
   <div id="article" class="page-container">
     <el-row type="flex" justify="center" :gutter="20">
       <div class="header">
-        <el-select value="0" placeholder="请选择文章分类">
-          <el-option label="全部" value="0"></el-option>
-          <el-option label="日常文章" value="1"></el-option>
-          <el-option label="前端开发" value="2"></el-option>
-          <el-option label="后端开发" value="3"></el-option>
+        <el-select clearable :value="category" placeholder="请选择文章分类" @change="selectChange">
+          <el-option v-for="(item,index) in categoryDate" :label="item.name" :value="item.id" :key="index"></el-option>
         </el-select>
       </div>
     </el-row>
-    <el-row type="flex" justify="center" :gutter="20">
+
+    <keep-alive>
+      <el-row type="flex" justify="center" :gutter="20">
       <el-col :md="20" :xs="24">
-          <el-col :md="8" :sm="12" :xs="24" v-for="(o, index) in 6" :key="o">
+          <el-col :md="8" :sm="12" :xs="24" v-for="(item, index) in list.data" :key="item.id">
             <el-card class="article-item" :body-style="{ padding: '0px' }" shadow="hover">
               <nuxt-link class="link" to="/">
                 <el-image
                   style="width:100%; height:200px"
-                  src="https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg"
+                  :src="item.url"
                   fit="cover"></el-image>
                 <div class="cont">
-                  <h2>无用户登录状态网站的购物车功能实现方案</h2>
-                  <p>最近遇到一个项目，值得写篇文章进行分析探讨和深入学习交流，所以决定写这篇文章，连续爆肝一下午，写出了Demo，晚上在整理写文章。（非主流无用户登录状态的购物车功能解决方案，不带第三方支付功能）</p>
+                  <h2>{{item.title}}</h2>
+                  <p>{{item.desc}}</p>
                 </div>
               </nuxt-link>
               <div class="bottom clearfix">
-                <time class="time">2020年08月14日</time>
+                <time class="time">{{item.date}}</time>
                 <el-row>
                   <el-col :span="5">
                     <i class="el-icon-view"></i>
-                    <span>999</span>
+                    <span>{{item.visits}}</span>
                   </el-col>
-                  <el-col :span="5">
-                    <i class="el-icon-thumb"></i>
-                    <span>999</span>
-                  </el-col>
+<!--                  <el-col :span="5">-->
+<!--                    <i class="el-icon-thumb"></i>-->
+<!--                    <span>999</span>-->
+<!--                  </el-col>-->
                 </el-row>
               </div>
             </el-card>
           </el-col>
       </el-col>
     </el-row>
+    </keep-alive>
+
     <el-row  type="flex" justify="center" class="pages">
       <el-pagination
         background
         layout="prev, pager, next"
-        :pager-count="5"
-        :page-size="6"
-        :total="100">
+        :page-size="page.pageSize"
+        :total="page.total"
+        @current-change="currentChange"
+      >
       </el-pagination>
     </el-row>
   </div>
 </template>
 
 <script>
-import articleAPI from '@/api/article';
+import articleAPI from '@/api/modul/article';
 export default {
   data(){
     return{
       value:'',
       value1:'',
-      list:[]
+      page:{},
+      list:[],
+      categoryDate:[],
+      category:'',
     }
   },
   head () {
@@ -68,24 +73,57 @@ export default {
       title:'文章 | 天小天',
     }
   },
-  async asyncData(){
-    let listData = await articleAPI.list({});
-    return {
-      list:listData.data,
+  methods:{
+    currentChange(e){
+      this.page.currentPage = e;
+      this.getList();
+    },
+    selectChange(e){
+      this.category = e;
+      this.page.currentPage = 1;
+      this.page.total = 6;
+      this.getList();
+    },
+    async getList(){
+      let listPostData = {
+        pageSize:this.page.pageSize,
+        currentPage:this.page.currentPage,
+        category:this.category,
+      };
+      let listData = await articleAPI.list(listPostData);
+      this.page.total = listData.total;
+      this.list=listData;
     }
   },
-  methods:{
+  async asyncData(context){
+    let page = {
+      pageSize:6,
+      currentPage:1,
+      total:6,
+    };
+    let listGetData = {
+      pageSize:page.pageSize,
+      currentPage:page.currentPage,
+      category:'',
+    };
+    let listData = await articleAPI.list(listGetData);
+    let categoryDate = await articleAPI.category({});
+    page.total = listData.total;
+    return {
+      page:page,
+      list:listData,
+      categoryDate:categoryDate,
+    }
   },
   mounted() {
-    console.log(this.list)
+    console.log(this.categoryDate)
   },
   created() {
-    // console.log(this.list)
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .page-container{
   box-sizing: border-box;
   padding: 10px 10px 30px 10px;
