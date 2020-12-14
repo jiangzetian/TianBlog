@@ -1,0 +1,10 @@
+@import "assets/css/common/common";
+.Tian-card{
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #333;
+  @include  font_color('text-color');
+}

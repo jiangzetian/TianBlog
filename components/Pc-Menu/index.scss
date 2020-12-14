@@ -1,0 +1,79 @@
+@import "assets/css/common/common";
+
+#pcMenu{
+  z-index:999;
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  transform: translateX(-50%);
+  .item{
+    @include background_color('background_color');
+    @include box_shadow('box-shadow');
+    @include  font_color('text-color');
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width:60px;
+    height:60px;
+    margin:0 0 5px 0;
+    border-radius:100%;
+    i{
+      font-size:20px;
+    }
+    &:active{
+      @include box_shadow('box-shadow1');
+    }
+  }
+  .menu{
+    position: absolute;
+    bottom:70px;
+    visibility: hidden;
+    .item{
+      transform:scale(0);
+    }
+    .item:nth-child(5){
+      transition: all 0.5s;
+    }
+    .item:nth-child(4){
+      transition: all 0.4s;
+    }
+    .item:nth-child(3){
+      transition: all 0.3s;
+    }
+    .item:nth-child(2){
+      transition: all 0.3s;
+    }
+    .item:nth-child(1){
+      transition: all 0.1s;
+    }
+  }
+  .open{
+    position: absolute;
+    bottom:70px;
+    .item{
+      transform:scale(1);
+    }
+    .item:nth-child(5){
+      transition: all 0.1s;
+    }
+    .item:nth-child(4){
+      transition: all 0.2s;
+    }
+    .item:nth-child(3){
+      transition: all 0.3s;
+    }
+    .item:nth-child(2){
+      transition: all 0.4s;
+    }
+    .item:nth-child(1){
+      transition: all 0.5s;
+    }
+  }
+  .bottom{
+    position: absolute;
+    bottom: 0;
+  }
+}

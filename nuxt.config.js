@@ -37,7 +37,6 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
-    {src:'@/plugins/iconfont',ssr:false}
   ],
   /*
   ** Auto import components
