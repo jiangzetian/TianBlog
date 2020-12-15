@@ -1,8 +1,25 @@
 <template>
   <div id="layout">
-    <div id="Main">
-      <nuxt/>
-    </div>
+    <el-container>
+      <!--头部-->
+      <el-header id="header">
+        <div  class="container">
+          <div class="logobox">
+            <img class="logo" src="https://via.placeholder.com/200x200?text=logo" alt="">
+            <h1>TianXiaoTian.xyz</h1>
+          </div>
+<!--          <el-input placeholder="请输入内容" style="width:200px">-->
+<!--            <el-button slot="append" icon="el-icon-search"></el-button>-->
+<!--          </el-input>-->
+        </div>
+      </el-header>
+      <!--内容-->
+      <el-main>
+        <div id="Main">
+          <nuxt/>
+        </div>
+      </el-main>
+    </el-container>
     <pc-menu></pc-menu>
   </div>
 </template>

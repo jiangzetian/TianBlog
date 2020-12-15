@@ -5,60 +5,86 @@ header{
   height: 80px;
 }
 
-.section-1{
-  margin-bottom: 30px;
-  h2{
-    margin: 10px 5px;
+.s1{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .radarBox{
+    width:50%;
+    height:300px;
   }
-  .card-1{
-    display: flex;
-    width: 100%;
-  }
-  .call-card{
-    margin: 0 20px;
-  }
-  .header{
-    p{
-      font-size: 18px;
-      margin-bottom: 15px;
+  .contactBox{
+    width:50%;
+    .el-carousel__item{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
     }
-  }
-  li{
-    display: flex;
-    margin-bottom: 10px;
-    span:first-child{
-      width:50px;
+    .contact{
+      box-sizing: border-box;
+      padding:20px;
+      width: 100%;
+      height: 100%;
+      background: #FB7299;
     }
   }
   @media screen and (max-width: 1200px) {
-    .call-card{
-      margin: 0 5px;
-    }
-  }
-  @media screen and (max-width: 1100px) {
-    .card-1{
-      box-sizing: border-box;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-    }
-    .call-card{
-      width: 49%;
+    flex-direction: column;
+    .radarBox , .contactBox{
+      width: 100%;
       margin: 10px 0;
     }
   }
 }
-
-.section-2{
-  .card-2{
-    padding:0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.s2{
+  display: flex;
+  justify-content: space-between;
+  .aboutBox{
+    width:50%;
+    .avatar{
+      display: flex;
+      justify-content: center;
+    }
+    .text{
+      text-align: center;
+      margin-bottom: 20px;
+      h2{
+        margin:5px 0 10px 0;
+      }
+    }
+    .content{
+      padding: 10px;
+      line-height: 2;
+    }
   }
-  .article-card{
-    width:49%;
-    margin-bottom: 30px;
+  .articleBox{
+    width:50%;
+    .img{
+      width: 300px;
+      height:128px;
+      margin:10px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    .text{
+      h2{
+        margin:10px 0 20px 0;
+      }
+    }
+  }
+  /deep/.el-timeline-item__content{
+    display: flex;
+  }
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    .aboutBox , .articleBox{
+      width: 100%;
+      margin: 10px 0;
+    }
   }
 }
-
