@@ -52,8 +52,9 @@
 </template>
 
 <script>
-  import Logo from '../components/Logo'
-  import TianCard from '@/components/Tian-Card'
+  import Logo from '../components/Logo';
+  import TianCard from '@/components/Tian-Card';
+  var echarts = require('echarts');
   export default {
     components:{
       "Logo":Logo,
@@ -65,13 +66,10 @@
       }
     },
     data(){
-      return{
-
-      }
+      return{}
     },
     methods:{
       initRadar(){
-        var echarts = require('echarts');
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('Radar'));
         // 绘制图表
