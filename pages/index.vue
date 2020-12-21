@@ -4,15 +4,14 @@
       <section class="s1">
         <div class="radarBox" id="Radar"></div>
         <div class="contactBox">
-          <el-carousel :interval="4000" arrow="always" type="card" height="200px">
-            <el-carousel-item v-for="item in 6" :key="item">
-              <div class="contact">
-                <img src="https://via.placeholder.com/80" alt="">
+          <el-carousel :interval="3000" arrow="always" type="card" height="200px">
+            <el-carousel-item v-for="item in contactData" :key="item.id">
+              <div class="contact" :style="'background:'+item.color">
+                <img class="img" :src="item.img" alt="">
                 <div class="text">
-                  <p>天小天个人网</p>
-                </div>
-                <div>
-                  <a href="">点击跳转</a>
+                  <h4>{{item.name}}</h4>
+                  <p>{{item.desc}}</p>
+                  <a @click="navToUrl(item.url)" target="_blank">点击跳转</a>
                 </div>
               </div>
             </el-carousel-item>
@@ -34,13 +33,13 @@
         </div>
         <div class="articleBox">
           <el-timeline >
-            <el-timeline-item timestamp="2018/4/12" placement="top" v-for="(item,index) in 3" key="index">
+            <el-timeline-item timestamp="2018/4/12" placement="top" v-for="(item,index) in articleData" :key="item.id">
               <div class="img">
-                <img class="logo" src="https://via.placeholder.com/900x383" alt="">
+                <img class="logo" :src="item.url" alt="">
               </div>
               <div class="text">
-                <h2>文章标题文章标题文章标题文章标题</h2>
-                <p>文章描述文章描述文章描述，文章描述文章描述，文章描述。</p>
+                <h2>{{item.title}}</h2>
+                <p>{{item.desc}}</p>
               </div>
               <div class="bottom"></div>
             </el-timeline-item>
@@ -52,8 +51,8 @@
 </template>
 
 <script>
-  import Logo from '../components/Logo';
-  import TianCard from '@/components/Tian-Card';
+  import indexAPI from '@/api/modul/index';
+  import articleAPI from '@/api/modul/article';
   //雷达图库
   let echarts = require("echarts/lib/echarts");
   require("echarts/lib/chart/radar");
@@ -61,24 +60,15 @@
   require("echarts/lib/component/tooltip");
   require("echarts/lib/component/legend");
   export default {
-    components:{
-      "Logo":Logo,
-      'Tian-Card':TianCard
-    },
+    components:{},
     head () {
       return {
         title:'首页 | 天小天',
       }
     },
     data(){
-      return{}
-    },
-    methods:{
-      initRadar(){
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('Radar'));
-        // 绘制图表
-        myChart.setOption({
+      return{
+        radarOption:{
           title: {},
           tooltip: {},
           legend: {
@@ -86,42 +76,75 @@
           },
           radar: {
             shape: 'circle',
-            name: {
-              textStyle: {
-                color: '#fff',
-                backgroundColor: '#999',
-                borderRadius: 3,
-                padding: [3, 5]
-              }
-            },
-            indicator: [
-              { name: 'JS', max: 100},
-              { name: 'Vue', max: 100},
-              { name: 'Git', max: 100},
-              { name: 'PHP', max: 100},
-              { name: 'H5', max: 100},
-              { name: 'PS', max: 100},
-              { name: '小程序', max: 100}
-            ]
+            axisName: {},
+            //indicator示例数据
+            indicator: []
           },
-          series: [{
-            name: '技能雷达图',
-            type: 'radar',
-            areaStyle: {normal: {}},
-            data: [
-              {
-                value: [95, 99, 90, 98, 97, 80,100],
-                name: '技能雷达图'
-              }
-            ]
-          }]
-        });
+          series: [
+            {
+              name: '技能雷达图',
+              type: 'radar',
+              areaStyle: {},
+              data: [
+                {
+                  //value示例值数据
+                  value: [],
+                  name: '技能雷达图'
+                }
+              ]
+            },
+          ]
+        },
+        radarData:[],
+        articleData:[],
+        contactData:[],
       }
     },
-    created() {},
+    async asyncData(context){
+      let listGetData = {
+        pageSize:3,
+        currentPage:1,
+        category:'',
+      };
+      let radarData = await indexAPI.getRadar({name:'aboutRadar'});
+      let contactData = await indexAPI.getContact({name:'aboutRadar'});
+      let articleData = await articleAPI.list(listGetData);
+      return {
+        radarData,
+        contactData,
+        articleData:articleData.data,
+      }
+    },
+    methods:{
+      initRadar(){
+        //格式化数据
+        let indicator=[];
+        let seriesData=[];
+        (this.radarData).forEach((item,index)=>{
+          indicator.push({
+            name:item.name,
+            max:item.max,
+          });
+          seriesData.push(item.value)
+        });
+        //修改数据
+        this.radarOption.radar.indicator = indicator;
+        this.radarOption.series[0].data[0].value = seriesData;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('Radar'));
+        // 绘制图表
+        myChart.setOption(this.radarOption);
+      },
+      navToUrl(url){
+        window.open(url);
+      },
+    },
+    created() {
+    },
     mounted() {
-      this.initRadar()
-    }
+      console.log(this.articleData);
+      this.initRadar();
+    },
   }
 </script>
 
