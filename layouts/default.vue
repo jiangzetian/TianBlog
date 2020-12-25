@@ -1,30 +1,20 @@
 <template>
-  <div id="layout">
-    <el-container>
-      <!--头部-->
-      <el-header id="header">
-        <div  class="container">
-          <div class="logobox">
-            <img class="logo" src="https://via.placeholder.com/200x200?text=logo" alt="">
-            <h1>TianXiaoTian.xyz</h1>
-          </div>
-<!--          <el-input placeholder="请输入内容" style="width:200px">-->
-<!--            <el-button slot="append" icon="el-icon-search"></el-button>-->
-<!--          </el-input>-->
-        </div>
-      </el-header>
-      <!--内容-->
-      <el-main>
-        <div id="Main">
-          <nuxt/>
-        </div>
-      </el-main>
-    </el-container>
-    <pc-menu></pc-menu>
-  </div>
+  <el-container id="layout">
+    <el-header class="hidden-xs-only">
+      <header-template/>
+    </el-header>
+    <el-main>
+      <nuxt/>
+    </el-main>
+    <el-footer class="hidden-sm-and-up">
+      <footer-template/>
+    </el-footer>
+  </el-container>
 </template>
 <script>
-import PcMenu from '@/components/Pc-Menu'
+import Header from '@/layouts/modul/Header'
+import Footer from '@/layouts/modul/Footer'
+import 'element-ui/lib/theme-chalk/display.css';
 export default {
   data(){
     return {
@@ -41,7 +31,8 @@ export default {
     }
   },
   components:{
-    'pc-menu':PcMenu,
+    'header-template':Header,
+    'footer-template':Footer,
   },
   methods:{
   },
@@ -51,6 +42,7 @@ export default {
   created() {},
   mounted() {
     window.document.documentElement.setAttribute( "data-theme", 'light' );
+    // window.document.documentElement.setAttribute( "data-theme", 'dark' );
   },
 }
 </script>

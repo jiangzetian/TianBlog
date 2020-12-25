@@ -1,0 +1,42 @@
+@import "@/assets/css/common/common.scss";
+#footer{
+    height: 100%;
+    .menu{
+        height: 100%;
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        font-size: 20px;
+        font-family: "KL-T";
+        a{
+            @include font_color("text-color");
+            height: 100%;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin: 0 10px;
+            text-decoration: none;
+            &:hover{
+                @include font_color('primary-color')
+            }
+        }
+        .nuxt-link-exact-active{
+            @include font_color('primary-color')
+        }
+        .item{
+            @include font_color("text-color");
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin: 0 10px;
+            i:hover{
+                @include font_color('primary-color')
+            }
+        }
+        .active > i{
+            @include font_color('primary-color')
+        }
+    } 
+}

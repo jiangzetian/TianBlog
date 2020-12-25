@@ -1,51 +1,16 @@
 <template>
-  <div>
-    <div class="container">
-      <section class="s1">
-        <div class="radarBox" id="Radar"></div>
-        <div class="contactBox">
-          <el-carousel :interval="3000" arrow="always" type="card" height="200px">
-            <el-carousel-item v-for="item in contactData" :key="item.id">
-              <div class="contact" :style="'background:'+item.color">
-                <img class="img" :src="item.img" alt="">
-                <div class="text">
-                  <h4>{{item.name}}</h4>
-                  <p>{{item.desc}}</p>
-                  <a @click="navToUrl(item.url)" target="_blank">点击跳转</a>
-                </div>
-              </div>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
-      </section>
-      <section class="s2">
-        <div class="aboutBox">
-          <div class="avatar">
-            <el-avatar src="https://via.placeholder.com/300" :size="100"></el-avatar>
-          </div>
-          <div class="text">
-            <h2>天小天</h2>
-            <p>个人描述个人描述</p>
-          </div>
-          <div class="content">
-            个人描述个人描述个人描述个人描述个人描述个人描述,个人描述个人描述个人描述个人描述,个人描述个人描述个人描述个人描述个人描述个人描述,个人描述个人描述个人描述个人描述个人描述个人描述个人描述个人描述.
-          </div>
-        </div>
-        <div class="articleBox">
-          <el-timeline >
-            <el-timeline-item timestamp="2018/4/12" placement="top" v-for="(item,index) in articleData" :key="item.id">
-              <div class="img">
-                <img class="logo" :src="item.url" alt="">
-              </div>
-              <div class="text">
-                <h2>{{item.title}}</h2>
-                <p>{{item.desc}}</p>
-              </div>
-              <div class="bottom"></div>
-            </el-timeline-item>
-          </el-timeline>
-        </div>
-      </section>
+  <div id="index">
+    <div class="avatar">
+      <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" :size="160"></el-avatar>
+    </div>
+    <div class="text">
+      <h2>XXXXXX</h2>
+      <p>XXXXXXXXXX.</p>
+    </div>
+    <div class="contact">
+      <div v-for="(item) in contactData" :key="item.id" @click="navToUrl(item.url)">
+        <img :src="item.img" alt="">
+      </div>
     </div>
   </div>
 </template>
@@ -131,9 +96,9 @@
         this.radarOption.radar.indicator = indicator;
         this.radarOption.series[0].data[0].value = seriesData;
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('Radar'));
+        // var myChart = echarts.init(document.getElementById('Radar'));
         // 绘制图表
-        myChart.setOption(this.radarOption);
+        // myChart.setOption(this.radarOption);
       },
       navToUrl(url){
         window.open(url);
@@ -142,7 +107,6 @@
     created() {
     },
     mounted() {
-      console.log(this.articleData);
       this.initRadar();
     },
   }
