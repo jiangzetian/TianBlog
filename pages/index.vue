@@ -1,11 +1,11 @@
 <template>
   <div id="index">
     <div class="avatar">
-      <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" :size="160"></el-avatar>
+      <el-avatar src="https://image.tianxiaotian.xyz/2020/08/10/48e4cc3e78a6d.jpg" :size="160"></el-avatar>
     </div>
     <div class="text">
-      <h2>XXXXXX</h2>
-      <p>XXXXXXXXXX.</p>
+      <h2>天小天</h2>
+      <p>天小天一名年轻且充满活力的前端工程师！</p>
     </div>
     <div class="contact">
       <div v-for="(item) in contactData" :key="item.id" @click="navToUrl(item.url)">

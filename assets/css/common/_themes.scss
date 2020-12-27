@@ -19,6 +19,7 @@ $themes: (
 
     card_background_concave1: linear-gradient(145deg, #d6dbe0, #ffffff),
     card_background_concave2: linear-gradient(145deg, #ffffff, #d6dbe0),
+    border-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1),
     box-shadow: (6px 6px 10px #a7aaae , -6px -6px 10px #ffffff), // 浮层阴影
     box-shadow1: (inset 6px 6px 8px #a7aaae,inset -6px -6px 8px #ffffff),//凹层阴影
   ),
@@ -41,6 +42,7 @@ $themes: (
 
     card_background_concave1: linear-gradient(145deg, #18212c, #1d2834),
     card_background_concave2: linear-gradient(145deg, #1d2834, #18212c),
+    border-shadow: 0 2px 20px 0 rgba(127, 127, 127, 0.1),
     box-shadow: ( 11px 11px 22px #131a22,-11px -11px 22px #233040), // 浮层阴影
     box-shadow1: (inset 11px 11px 22px #131a22,inset -11px -11px 22px #233040),//凹层阴影
   )
