@@ -1,17 +1,40 @@
 <template>
   <div id="article" class="container">
     <div class="categoryList">
-      <div class="item" v-for="(item,index) in categoryDate" :key="index">
-        <span>{{item.name}}</span>
+      <div class="item">
+        <span @click="selectChange('')" :class="category?'':'active'">全部</span>
+      </div>
+      <div class="item" v-for="(item,index) in categoryData" :key="index">
+        <span @click="selectChange(index)" :class="index===category?'active':''">{{item.name}}</span>
       </div>
     </div>
+    <section class="pageList">
+      <el-pagination
+        :page-size="page.pageSize"
+        :pager-count="5"
+        :total="page.total"
+        :hide-on-single-page="true"
+        layout="prev, pager, next"
+        @current-change="currentChange"
+      >
+      </el-pagination>
+    </section>
     <div class="articlelist">
-      <div class="item" v-for="(item,index) in list.data" :key="item.id">
+      <div class="item" v-for="(item,index) in list.data" :key="item.id" @click="navToDetails(item.id)">
         <img :src="item.url" alt="">
         <div class="textBox">
           <p class="title">{{item.title}}</p>
           <p class="desc">{{item.desc}}</p>
-          <p class="date">{{item.date}}</p>
+          <div class="date">
+            <div>
+              <i class="el-icon-view"></i>
+              {{item.visits}}
+            </div>
+            <div>
+              <i class="el-icon-time"></i>
+              {{item.date}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -27,7 +50,7 @@ export default {
       value1:'',
       page:{},
       list:[],
-      categoryDate:[],
+      categoryData:[],
       category:'',
     }
   },
@@ -38,7 +61,7 @@ export default {
   },
   async asyncData(context){
     let page = {
-      pageSize:6,
+      pageSize:5,
       currentPage:1,
       total:6,
     };
@@ -48,12 +71,12 @@ export default {
       category:'',
     };
     let listData = await articleAPI.list(listGetData);
-    let categoryDate = await articleAPI.category({});
+    let categoryData = await articleAPI.category({});
     page.total = listData.total;
     return {
       page:page,
       list:listData,
-      categoryDate:categoryDate,
+      categoryData:categoryData,
     }
   },
   methods:{
@@ -67,6 +90,14 @@ export default {
       this.page.total = 6;
       this.getList();
     },
+    navToDetails(e){
+      this.$router.push({
+        path:'/articleDetails',
+        query:{
+          id:e
+        }
+      });
+    },
     async getList(){
       let listPostData = {
         pageSize:this.page.pageSize,
@@ -76,13 +107,13 @@ export default {
       let listData = await articleAPI.list(listPostData);
       this.page.total = listData.total;
       this.list=listData;
-    }
-  },
-  mounted() {
-    console.log(this.list)
+    },
   },
   created() {
-  }
+  },
+  mounted() {
+  },
+
 }
 </script>
 

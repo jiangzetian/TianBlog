@@ -2,21 +2,32 @@
 @import "@/assets/css/common/font.scss";
 
 *{
-  @include font_color("text-color");
   margin: 0;
   padding: 0;
 }
 html,body{
   @include background_color("background_color");
+  @include font_color("text-color");
   width: 100%;
   height: 100%;
   transition: background-color 0.7s;
+}
+
+p{
+  @include font_color("text-color");
 }
 
 h1,h2,h3,h4,h5,h6{
   @include font_color("heading-color");
   line-height: 1.5;
 }
+.container{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 1200px) {
   h1{
     font-size: 20px;
@@ -28,14 +39,12 @@ h1,h2,h3,h4,h5,h6{
     font-size: 14px;
   }
 }
-
-.container{
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 10px;
+@media screen and (max-width: 750px) {
+  .el-main{
+    padding: 0 10px !important;
+  }
 }
+
 
 /*
 reset.css

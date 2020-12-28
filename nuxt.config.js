@@ -37,6 +37,7 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
+    { src: '@/plugins/mavon-editor', ssr: false }
   ],
   /*
   ** Auto import components
@@ -52,7 +53,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    
+
   ],
   /*
   ** Build configuration
