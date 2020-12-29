@@ -7,7 +7,7 @@
         :boxShadow="false"
         :ishljs = "true"
         :scrollStyle="true"
-        :previewBackground="'unst'"
+        :previewBackground="'unset'"
         :defaultOpen="'preview'"
         class="editor container"
         v-model="detailData.content"/>
@@ -52,6 +52,10 @@
 /deep/.editor{
   border: none;
   background: unset !important;
+  img{
+    display: block;
+    margin: 0 auto;
+  }
 }
 /deep/ pre,/deep/ .hljs{
   background: #fcf8e8 !important;

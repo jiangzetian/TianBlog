@@ -39,11 +39,11 @@ export default {
   watch:{
 
   },
-  created() {},
   mounted() {
     window.document.documentElement.setAttribute( "data-theme", 'light' );
     // window.document.documentElement.setAttribute( "data-theme", 'dark' );
   },
+  created() {},
 }
 </script>
 <style lang="scss">
