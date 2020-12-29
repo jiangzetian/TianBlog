@@ -1,13 +1,15 @@
 <template>
   <div id="article" class="container">
-    <div class="categoryList">
-      <div class="item">
-        <span @click="selectChange('')" :class="category?'':'active'">全部</span>
+    <section class="categoryList">
+      <div class="list">
+        <div class="item">
+          <span @click="selectChange('')" :class="category?'':'active'">全部</span>
+        </div>
+        <div class="item" v-for="(item,index) in categoryData" :key="index">
+          <span @click="selectChange(index)" :class="index===category?'active':''">{{item.name}}</span>
+        </div>
       </div>
-      <div class="item" v-for="(item,index) in categoryData" :key="index">
-        <span @click="selectChange(index)" :class="index===category?'active':''">{{item.name}}</span>
-      </div>
-    </div>
+    </section>
     <section class="pageList">
       <el-pagination
         :page-size="page.pageSize"

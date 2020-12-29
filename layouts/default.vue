@@ -3,7 +3,7 @@
     <el-header class="hidden-xs-only">
       <header-template/>
     </el-header>
-    <el-main>
+    <el-main id="Main">
       <nuxt/>
     </el-main>
     <el-footer class="hidden-sm-and-up">

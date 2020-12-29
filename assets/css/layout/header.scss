@@ -7,14 +7,14 @@
     align-items: center;
     .logo{
         a{
-            font-size: 22px;
+            font-size: 18px;
             @include font_color("text-color");
             text-decoration: none;
             display: block;
         }
     }
     .menu{
-        font-size: 20px;
+        font-size: 16px;
         a{
             @include font_color("text-color");
             margin: 0 10px;
