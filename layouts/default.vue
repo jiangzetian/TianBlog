@@ -12,14 +12,19 @@
   </el-container>
 </template>
 <script>
+import appAPI from '@/api/modul/app';
 import Header from '@/layouts/modul/Header'
 import Footer from '@/layouts/modul/Footer'
 import 'element-ui/lib/theme-chalk/display.css';
 export default {
+  components:{
+    'header-template':Header,
+    'footer-template':Footer,
+  },
   data(){
     return {
       menuShow:false,
-      routeData:'',
+      addVisitsRes:'',
     }
   },
   head () {
@@ -30,23 +35,25 @@ export default {
       ]
     }
   },
-  components:{
-    'header-template':Header,
-    'footer-template':Footer,
-  },
   methods:{
+    async addVisits() {
+      let addVisitsRes =  await appAPI.addVisits({});
+      return {
+        addVisitsRes
+      }
+    },
+    initTheme(){
+      window.document.documentElement.setAttribute( "data-theme", 'light' );
+    },
   },
-  watch:{
-
+  created() {
   },
   mounted() {
-    window.document.documentElement.setAttribute( "data-theme", 'light' );
-    // window.document.documentElement.setAttribute( "data-theme", 'dark' );
+    this.addVisits();
+    this.initTheme();
   },
-  created() {},
 }
 </script>
 <style lang="scss">
   @import "assets/css/layout/layout";
-
 </style>

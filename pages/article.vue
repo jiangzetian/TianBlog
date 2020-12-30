@@ -39,13 +39,18 @@
           </div>
         </div>
       </div>
+      <empty v-show="list.data.length<=0"></empty>
     </div>
   </div>
 </template>
 
 <script>
 import articleAPI from '@/api/modul/article';
+import Empty from '@/components/Empty';
 export default {
+  components:{
+    "empty":Empty
+  },
   data(){
     return{
       value:'',
