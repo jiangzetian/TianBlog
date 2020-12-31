@@ -20,14 +20,14 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'description',
+        vmid: 'description',
         name: 'description',
         content: '天小天一名年轻且充满活力的前端工程师！'
       },
       {
-        hid: 'keywords',
+        vmid: 'keywords',
         name: 'keywords',
-        content: '天小天，天小天个人网，it天小天，天小天开发，前端天小天，前端，html，css，JavaScript，技术，学习'
+        content: '天小天,天小天个人网,it天小天,天小天开发,前端天小天,前端,html,css,JavaScript,技术,学习'
       },
     ],
     link: [
