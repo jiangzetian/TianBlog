@@ -21,7 +21,7 @@
     components:{},
     head () {
       return {
-        title:'首页 | 天小天',
+        title:'天小天',
       }
     },
     data(){
