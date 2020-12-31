@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <div class="avatar">
-      <el-avatar src="https://image.tianxiaotian.xyz/2020/08/10/48e4cc3e78a6d.jpg" :size="160"></el-avatar>
+      <el-avatar :src="require('@/static/image/index/avatar.jpg')" :size="160"></el-avatar>
     </div>
     <div class="text">
       <h2>天小天</h2>
