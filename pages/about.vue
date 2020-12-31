@@ -3,10 +3,9 @@
     <section class="myBox">
       <p>简单介绍</p>
       <div class="content">
-<!--        <div class="avatar"><el-avatar src="https://image.tianxiaotian.xyz/2020/08/10/48e4cc3e78a6d.jpg" :size="120"></el-avatar></div>-->
         <ul class="list">
-          <li v-for="(item,index) in 6" :key="index">
-            <span>xxx:</span><span>xxxxxxx</span>
+          <li v-for="(item,index) in aboutData" :key="item.title">
+            <span>{{item.title}}</span><span>{{item.content}}</span>
           </li>
         </ul>
       </div>
@@ -63,8 +62,28 @@
           ]
         },
         radarData:[],
-        articleData:[],
-        contactData:[],
+        aboutData:[
+          {
+            title:'姓名：',
+            content:'天小天',
+          },
+          {
+            title:'性别：',
+            content:'男',
+          },
+          {
+            title:'出生：',
+            content:'1999年09月',
+          },
+          {
+            title:'职业：',
+            content:'前端开发工程师',
+          },
+          {
+            title:'爱好：',
+            content:'吉他、音乐、篮球、coding',
+          },
+        ]
       }
     },
     async asyncData(context){

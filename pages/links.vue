@@ -1,6 +1,6 @@
 <template>
   <div id="links" class="container">
-    <p>友情链接</p>
+    <p style="text-align: center;padding: 20px 0;">可合作互换友情链接</p>
   </div>
 </template>
 

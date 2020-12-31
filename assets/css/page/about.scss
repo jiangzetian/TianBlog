@@ -5,21 +5,16 @@
     margin-bottom: 20px;
   }
   .content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .avatar{
-    //width: 49%;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .list{
-    //width: 49%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
   }
   li{
     margin-bottom:10px;
+    span:first-child{
+    }
+    span:last-child{
+    }
   }
 }
 
