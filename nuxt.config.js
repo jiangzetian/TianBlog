@@ -19,7 +19,16 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        name: 'description',
+        hid: 'description',
+        content: '天小天个人网,前端工程师天小天的个人网站,致力于前端技术交流学习。'
+      },
+      {
+        name: 'keywords',
+        hid: 'keywords ',
+        content: '天小天，天小天个人网，it天小天，天小天开发，前端天小天，前端，html，css，JavaScript，技术，学习'
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'image/logo/logo.ico' }
