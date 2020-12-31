@@ -31,7 +31,16 @@ export default {
     return {
       title:'天小天',
       meta: [
-        { hid: 'description', name: '天小天', content: '天小天个人网,前端工程师天小天的个人网站,致力于前端技术交流学习。' }
+        {
+          name: '天小天',
+          hid: 'description',
+          content: '天小天个人网,前端工程师天小天的个人网站,致力于前端技术交流学习。'
+        },
+        {
+          name: '天小天',
+          hid: 'keywords ',
+          content: '天小天，天小天个人网，it天小天，天小天开发，前端天小天，前端，html，css，JavaScript，技术，学习'
+        },
       ]
     }
   },
