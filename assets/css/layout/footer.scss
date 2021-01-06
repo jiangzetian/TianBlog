@@ -20,6 +20,15 @@
                 @include font_color('primary-color')
             }
         }
+        >span{
+          cursor: pointer;
+          &:hover{
+            @include font_color('primary-color')
+          }
+        }
+        .nuxt-link-active{
+          @include font_color('primary-color')
+        }
         .nuxt-link-exact-active{
             @include font_color('primary-color')
         }

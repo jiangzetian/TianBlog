@@ -48,19 +48,5 @@
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/css/common/common";
-/deep/.editor{
-  border: none;
-  background: unset !important;
-  img{
-    display: block;
-    margin: 0 auto;
-  }
-  .v-show-content{
-    padding: 0 !important;
-  }
-}
-/deep/ pre,/deep/ .hljs{
-  background: #fcf8e8 !important;
-}
+  @import "@/assets/css/page/article/details";
 </style>

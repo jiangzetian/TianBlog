@@ -1,7 +1,7 @@
 <template>
     <div id="footer">
         <div class="menu">
-             <nuxt-link to="/">主页</nuxt-link>
+             <span @click="$router.push({path:'/'})">主页</span>
              <nuxt-link to="/article">文章</nuxt-link>
              <nuxt-link to="/about">关于</nuxt-link>
              <nuxt-link to="/links">友链</nuxt-link>

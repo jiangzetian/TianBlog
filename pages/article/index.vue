@@ -99,7 +99,7 @@ export default {
     },
     navToDetails(e){
       this.$router.push({
-        path:'/articleDetails',
+        path:'/article/details',
         query:{
           id:e
         }
@@ -125,5 +125,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/page/article.scss";
+@import "@/assets/css/page/article/index";
 </style>

@@ -4,10 +4,8 @@
             <nuxt-link to="/">天小天的个人博客</nuxt-link>
         </div>
         <div class="menu">
-             <nuxt-link to="/">主页</nuxt-link>
-             <nuxt-link to="/article">文章</nuxt-link>
-             <nuxt-link to="/about">关于</nuxt-link>
-             <nuxt-link to="/links">友链</nuxt-link>
+            <span @click="$router.push({path:'/'})">主页</span>
+             <nuxt-link v-for="(item,index) in navlist" :key="item.name" :to="item.path">{{item.name}}</nuxt-link>
              <span :class="!dark?'active item':'item'" @click="closeDark">
                  <i class="el-icon-sunny"></i>
              </span>
@@ -22,11 +20,36 @@ export default {
     name: "Header",
     data(){
         return {
+          navlist:[
+            // {
+            //   name:'首页',
+            //   path:'/',
+            //   active:false,
+            // },
+            {
+              name:'文章',
+              path:'/article',
+              active:false,
+            },
+            {
+              name:'关于',
+              path:'/about',
+              active:false,
+            },
+            {
+              name:'友链',
+              path:'/links',
+              active:false,
+            },
+          ],
           dark:false,
           menuShow:false,
         }
       },
       methods:{
+        navItemClick(index){
+          console.log(index)
+        },
         openDark(){
             this.dark = true;
             window.document.documentElement.setAttribute( "data-theme", 'dark' );

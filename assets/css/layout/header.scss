@@ -23,6 +23,12 @@
                 @include font_color('primary-color')
             }
         }
+        >span{
+          cursor: pointer;
+          &:hover{
+            @include font_color('primary-color')
+          }
+        }
         .item{
             @include font_color("text-color");
             margin: 0 10px;
@@ -33,6 +39,9 @@
         }
         .active > i{
             @include font_color('primary-color')
+        }
+        .nuxt-link-active{
+          @include font_color('primary-color')
         }
         .nuxt-link-exact-active{
             @include font_color('primary-color')
