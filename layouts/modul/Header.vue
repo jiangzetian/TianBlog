@@ -1,11 +1,11 @@
 <template>
     <div id="header" class="container">
         <div class="logo">
-            <nuxt-link to="/">天小天的个人博客</nuxt-link>
+            <nuxt-link to="/" no-prefetch>天小天的个人博客</nuxt-link>
         </div>
         <div class="menu">
-            <span @click="$router.push({path:'/'})">主页</span>
-             <nuxt-link v-for="(item,index) in navlist" :key="item.name" :to="item.path">{{item.name}}</nuxt-link>
+             <span @click="$router.push({path:'/'})">主页</span>
+             <nuxt-link v-for="(item,index) in navlist" :key="item.name" :to="item.path"  no-prefetch>{{item.name}}</nuxt-link>
              <span :class="!dark?'active item':'item'" @click="closeDark">
                  <i class="el-icon-sunny"></i>
              </span>

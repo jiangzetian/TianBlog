@@ -1,16 +1,14 @@
 <template>
     <div id="footer">
         <div class="menu">
-             <span @click="$router.push({path:'/'})">主页</span>
-             <nuxt-link to="/article">文章</nuxt-link>
-             <nuxt-link to="/about">关于</nuxt-link>
-             <nuxt-link to="/links">友链</nuxt-link>
-             <span :class="!dark?'active item':'item'" @click="closeDark">
-                 <i class="el-icon-sunny"></i>
-             </span>
-             <span :class="dark?'active item':'item'" @click="openDark">
-                 <i class="el-icon-moon"></i>
-             </span>
+            <span @click="$router.push({path:'/'})">主页</span>
+            <nuxt-link v-for="(item,index) in navlist" :key="item.name" :to="item.path"  no-prefetch>{{item.name}}</nuxt-link>
+            <span :class="!dark?'active item':'item'" @click="closeDark">
+              <i class="el-icon-sunny"></i>
+            </span>
+            <span :class="dark?'active item':'item'" @click="openDark">
+              <i class="el-icon-moon"></i>
+            </span>
         </div>
     </div>
 </template>
@@ -19,6 +17,28 @@ export default {
     name: "Footer",
     data(){
         return {
+          navlist:[
+            // {
+            //   name:'首页',
+            //   path:'/',
+            //   active:false,
+            // },
+            {
+              name:'文章',
+              path:'/article',
+              active:false,
+            },
+            {
+              name:'关于',
+              path:'/about',
+              active:false,
+            },
+            {
+              name:'友链',
+              path:'/links',
+              active:false,
+            },
+          ],
           dark:false,
           menuShow:false,
         }
