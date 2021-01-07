@@ -4,8 +4,8 @@
       <el-avatar :src="require('@/static/image/index/avatar.jpg')" :size="160"></el-avatar>
     </div>
     <div class="text">
-      <h2>天小天</h2>
-      <p>天小天一名年轻且充满活力的前端工程师！</p>
+      <h1>天小天</h1>
+      <h2>天小天一名年轻且充满活力的前端工程师！</h2>
     </div>
     <div class="contact">
       <div v-for="(item) in contactData" :key="item.id" @click="navToUrl(item.url)">
