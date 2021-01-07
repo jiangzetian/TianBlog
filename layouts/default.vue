@@ -5,6 +5,7 @@
     </el-header>
     <el-main id="Main">
       <nuxt/>
+      <Copyright-template/>
     </el-main>
     <el-footer class="hidden-sm-and-up">
       <footer-template/>
@@ -15,11 +16,13 @@
 import appAPI from '@/api/modul/app';
 import Header from '@/layouts/modul/Header'
 import Footer from '@/layouts/modul/Footer'
+import Copyright from '@/layouts/modul/Copyright'
 import 'element-ui/lib/theme-chalk/display.css';
 export default {
   components:{
     'header-template':Header,
     'footer-template':Footer,
+    'Copyright-template':Copyright,
   },
   data(){
     return {
