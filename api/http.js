@@ -3,10 +3,8 @@ import axios from 'axios';
 import { Message,Loading } from 'element-ui'
 
 const base = {
-  // imgApiUrl:process.env.VUE_APP_API_BASE_URL,
-  // baseurl:process.env.VUE_APP_API_BASE_URL
   imgApiUrl:'https://image.tianxiaotian.xyz',
-  baseurl:'https://sikq.top'
+  baseurl:'https://blog-server.tianxiaotian.xyz'
 };
 //设置超时时间
 const instance = axios.create({
