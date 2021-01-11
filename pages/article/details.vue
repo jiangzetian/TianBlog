@@ -2,6 +2,7 @@
   <div id="articleDetails">
     <no-ssr>
       <mavon-editor
+        v-cloak
         :toolbarsFlag="false"
         :subfield="false"
         :boxShadow="false"

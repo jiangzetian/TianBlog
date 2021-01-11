@@ -12,6 +12,7 @@
     </section>
     <section class="pageList">
       <el-pagination
+        v-cloak
         :page-size="page.pageSize"
         :pager-count="5"
         :total="page.total"
