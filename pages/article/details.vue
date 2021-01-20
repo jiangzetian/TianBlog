@@ -1,16 +1,17 @@
 <template>
-  <div id="articleDetails">
+  <div id="articleDetails" class="container">
     <no-ssr>
       <mavon-editor
         v-cloak
         :toolbarsFlag="false"
+        :codeStyle="codeStyle"
         :subfield="false"
         :boxShadow="false"
         :ishljs = "true"
         :scrollStyle="true"
         :previewBackground="'unset'"
         :defaultOpen="'preview'"
-        class="editor container"
+        class="editor"
         v-model="detailData.content"/>
     </no-ssr>
   </div>
@@ -24,6 +25,7 @@
       return{
         id:'',
         detailData:{},
+        codeStyle:'monokai',//代码高亮主题
       }
     },
     methods:{

@@ -13,6 +13,9 @@ html,body{
   transition: background-color 0.7s;
 }
 
+ol, ul {
+  @include font_color("text-color");
+}
 p,p~span{
   @include font_color("text-color");
   line-height: 2;

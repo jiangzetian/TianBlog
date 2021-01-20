@@ -1,5 +1,8 @@
 @import "@/assets/css/common/common";
 /deep/.editor{
+  width: 100%;
+  max-width:670px;
+  margin: 0 auto;
   border: none;
   background: unset !important;
   img{
@@ -9,7 +12,10 @@
   .v-show-content{
     padding: 0 !important;
   }
+  @media screen and (max-width:1200px ){
+
+  }
 }
 /deep/ pre,/deep/ .hljs{
-  background: #fcf8e8 !important;
+  padding:5px !important;
 }
