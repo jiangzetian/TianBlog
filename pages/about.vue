@@ -1,18 +1,24 @@
 <template>
   <div id="about" class="container">
-    <section class="myBox">
-      <p>简单介绍</p>
-      <div class="content">
-        <ul class="list">
-          <li v-for="(item,index) in aboutData" :key="item.title">
-            <span>{{item.title}}</span><span>{{item.content}}</span>
-          </li>
-        </ul>
-      </div>
-    </section>
     <section class="RadarBox">
       <p>技能雷达图</p>
       <div id="Radar"></div>
+    </section>
+    <section class="myBox">
+      <no-ssr>
+        <mavon-editor
+          v-cloak
+          :toolbarsFlag="false"
+          :codeStyle="codeStyle"
+          :subfield="false"
+          :boxShadow="false"
+          :ishljs = "true"
+          :scrollStyle="true"
+          :previewBackground="'unset'"
+          :defaultOpen="'preview'"
+          class="editor"
+          v-model="resumeData.content"/>
+      </no-ssr>
     </section>
   </div>
 </template>
@@ -62,38 +68,15 @@
           ]
         },
         radarData:[],
-        aboutData:[
-          {
-            title:'姓名：',
-            content:'天小天',
-          },
-          {
-            title:'性别：',
-            content:'男',
-          },
-          {
-            title:'出生：',
-            content:'1999年09月',
-          },
-          {
-            title:'现居：',
-            content:'广东省广州市',
-          },
-          {
-            title:'职业：',
-            content:'前端开发工程师',
-          },
-          {
-            title:'爱好：',
-            content:'吉他、音乐、篮球、coding',
-          },
-        ]
+        codeStyle:'monokai',//代码高亮主题
       }
     },
     async asyncData(context){
       let radarData = await aboutAPI.getRadar({name:'aboutRadar'});
+      let resumeData = await aboutAPI.getResume();
       return {
         radarData,
+        resumeData
       }
     },
     methods:{

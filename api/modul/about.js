@@ -9,6 +9,14 @@ const aboutAPI = {
       params:params,
     })
   },
+  //获取简历数据
+  getResume(params){
+    return axios({
+      method:'GET',
+      url:`${base.baseurl}/index/resume/index`,
+      params:params,
+    })
+  },
 };
 
 export default aboutAPI;
