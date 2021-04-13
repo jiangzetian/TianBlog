@@ -2,7 +2,7 @@
   <div id="links" class="container">
     <div class="linksList">
       <div class="item" v-for="(item,index) in linksData" @click="navToUrl(item.url)">
-        <img class="logo" :src="item.img" >
+        <el-avatar class="logo" shape="square" :size="100" icon="el-icon-user-solid" :src="item.img"></el-avatar>
         <div class="text">
           <p class="title">{{item.name}}</p>
           <p class="desc">{{item.desc}}</p>
