@@ -9,7 +9,11 @@
         </div>
       </div>
     </div>
-    <p class="ad">欢迎互换友情链接</p>
+
+    <div class="linksAd">
+      <p>欢迎互换友情链接</p>
+      <p>链接格式：名称、描述、头像、链接</p>
+    </div>
   </div>
 </template>
 
