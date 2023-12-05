@@ -1,9 +1,14 @@
-## TianBlog个人博客网站前台-前端
+## TianBlog 个人博客网站前台-前端
 
 ### 开发环境
-``node V12.*``
-``npm  V6.*``
-``Vue-Cli V4.*``
+
+`node 14.17.0`
+
+`node V14.*`
+
+`npm  V6.*`
+
+`Vue-Cli V4.*`
 
 ### 项目运行
 
