@@ -12,17 +12,27 @@
           <a
             no-prefetch
             target="_blank"
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43011102001726"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=43011102001726"
           >
             <img src="@/static/image/layout/备案图标.png" />
             <span>湘公网安备 43011102001726号</span>
           </a>
         </li>
       </template>
-      <template v-else-if="host.includes('ttshouna')">
+      <template v-else-if="host.includes('ttshouna') || true">
         <li>
           <a no-prefetch target="_blank" href="https://beian.miit.gov.cn">
             湘ICP备18008856-2号
+          </a>
+        </li>
+        <li>
+          <a
+            no-prefetch
+            target="_blank"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=43010302001867"
+          >
+            <img src="@/static/image/layout/备案图标.png" />
+            <span>湘公网安备 43010302001867号</span>
           </a>
         </li>
       </template>
