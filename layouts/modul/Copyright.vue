@@ -2,10 +2,13 @@
   <div id="copyright">
     <ul>
       <li>天小天版权所有©</li>
-      <template v-if="host.includes('tianxiaotian')">
+      <template
+        v-if="host.includes('tianxiaotian') || host.includes('localhost')"
+      >
         <li>
-          <a no-prefetch target="_blank" href="https://beian.miit.gov.cn">
-            湘ICP备18008856-1号
+          备案号：
+          <a no-prefetch target="_blank" href="https://beian.miit.gov.cn/">
+            湘ICP备18008856号
           </a>
         </li>
         <li>
@@ -19,10 +22,11 @@
           </a>
         </li>
       </template>
-      <template v-else-if="host.includes('ttshouna') || true">
+      <template v-else-if="host.includes('ttshouna')">
         <li>
-          <a no-prefetch target="_blank" href="https://beian.miit.gov.cn">
-            湘ICP备18008856-2号
+          备案号：
+          <a no-prefetch target="_blank" href="https://beian.miit.gov.cn/">
+            湘ICP备18008856号
           </a>
         </li>
         <li>
