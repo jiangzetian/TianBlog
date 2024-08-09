@@ -1,7 +1,7 @@
 <template>
   <div id="copyright">
     <ul>
-      <li>天小天版权所有©</li>
+      <li>天小天</li>
       <template
         v-if="host.includes('tianxiaotian') || host.includes('localhost')"
       >
